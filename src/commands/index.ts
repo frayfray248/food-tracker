@@ -1,5 +1,5 @@
-import * as ping from "./ping.js";
+import * as updateTracker from "./updateTracker.js";
 
 export const commands = {
-    ping,
+    [updateTracker.name]: updateTracker
 }

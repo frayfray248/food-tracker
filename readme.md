@@ -12,12 +12,9 @@ This application adds the following commands to the Discord server:
 
 - `/food-tracker-add-user @username`: Adds a user to the food tracker.
 - `/food-tracker-remove-user @username`: Removes a user from the food tracker.
-- `/food-tracker-attend @username`: Marks a user as attending, increasing their score by attendScore. Default 1.
-- `/food-tracker-user-buy @username attendees`: Marks a user as buying food, decreasing their score by `buyScore * attendees`.
+- `/food-tracker-update`: Updates the food tracker by asking the user to select who attended and who bought food using interactive buttons and select menus.
 - `/food-tracker-report`: Displays the current scores of all users in the food tracker.
 - `/food-tracker-ping-buyer`: Pings the user with the highest score, indicating that it's their turn to buy food.
-- `/food-tracker-set-attend-score x`: Sets the score increase for attending to x. Default 1.
-- `/food-tracker-set-buy-score x`: Sets the score decrease for buying food to x (per person). Default 1.
 - `/food-tracker-set-score @username x`: Sets the score of a user to x.
 
 # Scripts
@@ -53,9 +50,7 @@ Bot Permissions:
 # App Usage
 
 1. Use the `/food-tracker-add-user @username` command to add users to the food tracker.
-2. Use the `/food-tracker-attend @username` command to mark users as attending, which will increase their score.
-3. Use the `/food-tracker-user-buy @username attendees` command to mark users as buying food, which will decrease their score based on the number of attendees.
-4. Repeat steps 2 and 3 at each gathering to keep scores up to date.
+1. Use the `/food-tracker-update` command to update the food tracker by selecting who attended and who bought food using interactive buttons and select menus.
 
 # Data Storage
 
