@@ -24,7 +24,7 @@ export const execute = async (interaction: ChatInputCommandInteraction) => {
         })
 
         if (existingUser) {
-            await interaction.reply({ content: `${user.username} is already in the food tracker!`, flags: ["Ephemeral"] });
+            await interaction.reply({ content: `${user.username} is already in the food tracker!` });
             return;
         }
 
@@ -35,7 +35,7 @@ export const execute = async (interaction: ChatInputCommandInteraction) => {
             }
         })
 
-        await interaction.reply({ content: `Added ${user.username} to the food tracker!`, flags: [MessageFlags.Ephemeral] });
+        await interaction.reply({ content: `Added ${user.username} to the food tracker!` });
 
     } catch (error) {
 

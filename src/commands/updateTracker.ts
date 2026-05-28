@@ -95,7 +95,7 @@ export async function execute(interaction: CommandInteraction) {
         const users = await prisma.user.findMany()
 
         if (users.length === 0) {
-            await interaction.reply({ content: "No users in the food tracker! Add some users first.", flags: MessageFlags.Ephemeral });
+            await interaction.reply({ content: "No users in the food tracker! Add some users first." });
             return;
         }
 
@@ -146,7 +146,6 @@ export async function execute(interaction: CommandInteraction) {
                 const continueRow = buildContinueButton(continueButtonId);
                 const continueButtonInteractionResponse = await modalSubmitInteraction.reply({
                     components: [continueRow],
-                    flags: MessageFlags.Ephemeral,
                     withResponse: true
                 });
 
