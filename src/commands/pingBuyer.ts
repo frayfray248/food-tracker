@@ -16,8 +16,7 @@ export const execute = async (interaction: ChatInputCommandInteraction) => {
 
         if (users.length === 0) {
             await interaction.reply({
-                content: "No users in the food tracker! Add some users first.",
-                flags: [MessageFlags.Ephemeral]
+                content: "No users in the food tracker! Add some users first."
             });
             return;
         }
@@ -39,8 +38,7 @@ export const execute = async (interaction: ChatInputCommandInteraction) => {
             : "";
 
         await interaction.reply({
-            content: `${report}\n\n<@${selectedBuyer.id}>${tieNotice} it is your turn to buy!`,
-            flags: [MessageFlags.Ephemeral]
+            content: `${report}\n\n<@${selectedBuyer.id}>${tieNotice} it is your turn to buy!`
         });
     } catch (error) {
         return handleCommandError(interaction, error);

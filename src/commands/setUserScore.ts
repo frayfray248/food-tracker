@@ -24,7 +24,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         });
 
         if (!existingUser) {
-            await interaction.reply({ content: `${user.username} is not in the food tracker!`, flags: ["Ephemeral"] });
+            await interaction.reply({ content: `${user.username} is not in the food tracker!` });
             return;
         }
 
@@ -37,7 +37,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             }
         });
 
-        await interaction.reply({ content: `${user.username}'s score has been set to ${score}.`, flags: ["Ephemeral"] });
+        await interaction.reply({ content: `${user.username}'s score has been set to ${score}.` });
 
     } catch (error) {
 
