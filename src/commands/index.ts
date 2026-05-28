@@ -1,5 +1,13 @@
 import * as updateTracker from "./updateTracker.js";
+import * as addUser from "./addUser.js";
+import * as removeUser from "./removeUser.js";
+import * as report from "./report.js";
+import * as pingBuyer from "./pingBuyer.js";
 
 export const commands = {
-    [updateTracker.name]: updateTracker
+    [updateTracker.name]: updateTracker,
+    [addUser.name]: addUser,
+    [removeUser.name]: removeUser,
+    [report.name]: report,
+    [pingBuyer.name]: pingBuyer
 }
