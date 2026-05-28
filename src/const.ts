@@ -9,6 +9,8 @@ export const REPORT_COMMAND_NAME = "food-tracker-report";
 export const REPORT_COMMAND_DESCRIPTION = "Prints each tracked user's username, id, and score.";
 export const PING_BUYER_COMMAND_NAME = "food-tracker-ping-buyer";
 export const PING_BUYER_COMMAND_DESCRIPTION = "Prints the tracker report and pings the user who should buy next.";
+export const SET_USER_SCORE_COMMAND_NAME = "food-tracker-set-user-score";
+export const SET_USER_SCORE_COMMAND_DESCRIPTION = "Sets a user's score in the food tracker.";
 
 // collectors
 export const COLLECTOR_EVENTS = {
