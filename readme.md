@@ -15,13 +15,25 @@ This application adds the following commands to the Discord server:
 - `/food-tracker-update`: Updates the food tracker by asking the user to select who attended and who bought food using interactive buttons and select menus.
 - `/food-tracker-report`: Displays the current scores of all users in the food tracker.
 - `/food-tracker-ping-buyer`: Pings the user with the highest score, indicating that it's their turn to buy food.
-- `/food-tracker-set-score @username x`: Sets the score of a user to x.
+- `/food-tracker-set-user-score @username x`: Sets the score of a user to x.
+- `/food-tracker-set-user-role @username (admin|user)`: Sets a user's role to admin or user.
 
 # Scripts
 
 - `npm start`: Compiles the TypeScript code and runs the application.
 - `npm run dev`: Compiles the TypeScript code in watch mode, allowing for automatic recompilation when files change.
 - `npm run build`: Compiles the TypeScript code without running the application.
+- `npm run deploy:commands -- <guildId>`: Compiles the app and deploys slash commands to a specific Discord server.
+
+# Deploying Commands
+
+After inviting the bot to your server, deploy the slash commands with:
+
+```bash
+npm run deploy:commands -- <guildId>
+```
+
+Replace `<guildId>` with your Discord server ID.
 
 # Example ENV
 ```
