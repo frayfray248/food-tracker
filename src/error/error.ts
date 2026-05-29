@@ -1,4 +1,5 @@
 import { DiscordjsError, DiscordjsErrorCodes, MessageFlags, type CommandInteraction } from "discord.js";
+import { FoodTrackerError } from "./FoodTrackerError.js";
 
 export const handleCommandError = async (interaction: CommandInteraction, error: unknown) => {
 
@@ -7,6 +8,9 @@ export const handleCommandError = async (interaction: CommandInteraction, error:
 
     if (error instanceof DiscordjsError && error.code === DiscordjsErrorCodes.InteractionCollectorError) {
         replyContent = "Interaction timed out. Please try again.";
+    }
+    else if (error instanceof FoodTrackerError) {
+        replyContent = error.replyContent;
     }
     else {
         replyContent = "An error occurred while updating the food tracker. Please try again.";
@@ -24,12 +28,10 @@ export const handleCommandError = async (interaction: CommandInteraction, error:
     if (!interaction.replied && !interaction.deferred) {
         return interaction.reply({
             content: replyContent,
-            flags: MessageFlags.Ephemeral
         })
     } else {
         return interaction.followUp({
             content: replyContent,
-            flags: MessageFlags.Ephemeral
         })
     }
 

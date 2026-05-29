@@ -13,7 +13,7 @@ import { deployCommands } from "./deploy-commands.js";
 import { commands } from "./commands/index.js";
 import { config } from "./config.js";
 
-const client = new Client({
+export const client = new Client({
     intents: ["Guilds", "GuildMessages", "DirectMessages"],
 });
 

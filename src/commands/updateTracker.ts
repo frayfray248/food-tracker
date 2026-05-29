@@ -3,7 +3,7 @@ import { BUTTON_TIMEOUT, UPDATE_TRACKER_COMMAND_DESCRIPTION, UPDATE_TRACKER_COMM
 import { handleCommandError } from "../error/error.js";
 import { prisma } from "../db/db.js";
 import { TrackerUpdateUserSchema, type TrackerUpdateUser } from "../schemas/TrackerUpdateSchema.js";
-import {  getUsers, makeReport, updateScores } from "../utils/utils.js";
+import { checkAuth, getUsers, makeReport, updateScores } from "../utils/utils.js";
 import type { User } from "../../generated/prisma/client.js";
 
 const buildUserFoodStatusSelectMenu = (user: User) => {
@@ -91,6 +91,8 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: CommandInteraction) {
     try {
+
+        await checkAuth(interaction);
 
         const users = await prisma.user.findMany()
 
@@ -186,7 +188,7 @@ export async function execute(interaction: CommandInteraction) {
                     return
                 }
                 await updateScores(updates);
-                
+
                 const users = await getUsers();
                 const report = makeReport(users, REPORT_TYPE.UPDATE);
 

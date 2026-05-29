@@ -2,6 +2,7 @@ import { ChatInputCommandInteraction, SlashCommandBuilder } from 'discord.js';
 import { handleCommandError } from '../error/error.js';
 import { SET_USER_SCORE_COMMAND_DESCRIPTION, SET_USER_SCORE_COMMAND_NAME } from '../const.js';
 import { prisma } from '../db/db.js';
+import { checkAuth } from '../utils/utils.js';
 
 export const name = SET_USER_SCORE_COMMAND_NAME;
 
@@ -13,6 +14,8 @@ export const data = new SlashCommandBuilder()
 
 export async function execute(interaction: ChatInputCommandInteraction) {
     try {
+
+                await checkAuth(interaction);
 
         const user = interaction.options.getUser("user", true);
         const score = interaction.options.getInteger("score", true);

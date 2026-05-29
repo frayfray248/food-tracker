@@ -2,6 +2,8 @@ import { ChatInputCommandInteraction, CommandInteraction, MessageFlags, SlashCom
 import { ADD_USER_COMMAND_DESCRIPTION, ADD_USER_COMMAND_NAME } from "../const.js";
 import { handleCommandError } from "../error/error.js";
 import { prisma } from "../db/db.js";
+import { checkAuth } from "../utils/utils.js";
+import { FoodTrackerError } from "../error/FoodTrackerError.js";
 
 
 export const name = ADD_USER_COMMAND_NAME;
@@ -14,6 +16,8 @@ export const data = new SlashCommandBuilder()
 
 export const execute = async (interaction: ChatInputCommandInteraction) => {
     try {
+
+        await checkAuth(interaction);
 
         const user = interaction.options.getUser("user", true);
 

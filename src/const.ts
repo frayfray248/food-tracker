@@ -11,6 +11,8 @@ export const PING_BUYER_COMMAND_NAME = "food-tracker-ping-buyer";
 export const PING_BUYER_COMMAND_DESCRIPTION = "Prints the tracker report and pings the user who should buy next.";
 export const SET_USER_SCORE_COMMAND_NAME = "food-tracker-set-user-score";
 export const SET_USER_SCORE_COMMAND_DESCRIPTION = "Sets a user's score in the food tracker.";
+export const SET_USER_ROLE_COMMAND_NAME = "food-tracker-set-user-role";
+export const SET_USER_ROLE_COMMAND_DESCRIPTION = "Sets a user's role in the food tracker.";
 
 // collectors
 export const COLLECTOR_EVENTS = {
@@ -29,6 +31,11 @@ export enum USER_STATUS {
 export enum REPORT_TYPE {
     UPDATE = "update",
     SCORE = "score"
+}
+
+export enum USER_ROLE {
+    ADMIN = "admin",
+    USER = "user"
 }
 
 export const REPORT_TITLES = {
